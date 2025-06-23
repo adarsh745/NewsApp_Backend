@@ -8,10 +8,10 @@ const Createuser= async (req , res)=>
     
         const {username,email,password}=req.body
     try{
-        // if(!username && !email && !password)
-        // {
-        //     return res.status(400).json({message:"requred fileds are not foundd"})
-        // }
+        if(!username && !email && !password)
+        {
+            return res.status(400).json({message:"requred fileds are not foundd"})
+        }
 
         const hashpassword=bcrypt.hashSync(password,10)
         console.log(hashpassword)
